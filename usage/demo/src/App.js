@@ -1,5 +1,5 @@
 import React from 'react';
-import Parents from './Parents.jsx';
+import Parents from './liftCycle/Parents.jsx';
 
 import './App.css';
 
