@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Child from './Child.jsx';
 
 class Parents extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Parents extends Component {
   }
 
   componentWillUnmount() {
-    console.log('parents componentWillMount');
+    console.log('parents componentWillUnmount');
   }
 
   getSnapshotBeforeUpdate() {
@@ -45,7 +46,7 @@ class Parents extends Component {
     const { counter } = this.state;
     return (
       <div onClick={this.addCounter}>
-        { counter }
+        <Child counter={counter}></Child>
       </div>
     );
   }
