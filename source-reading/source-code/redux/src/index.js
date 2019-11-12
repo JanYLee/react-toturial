@@ -1,16 +1,16 @@
 import { createStore } from 'redux';
 
-// 新建store
-// 通过reducer生成
+// reducer 函数
+// 用于初始化和更新store
 // 根据老的state和action 生成新的state
-function counter (state=0, action) {
+function counter (state=10, action) {
   switch(action.type) {
     case 'add':
       return state+1;
     case 'delete':
       return state-1;
     default:
-      return 10;
+      return state;
   }
 }
 
@@ -20,6 +20,7 @@ const store = createStore(counter);
 const init = store.getState();
 console.log('init :', init); // init : 10
 
+// 监听事件, 当数据发生改变时的业务逻辑
 function listener() {
   const curStore = store.getState();
   console.log(`now store is ${curStore}`);
