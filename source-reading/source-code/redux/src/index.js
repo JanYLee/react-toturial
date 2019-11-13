@@ -1,4 +1,5 @@
-import { createStore } from './offical-redux-src';
+// import { createStore } from './offical-redux-src';
+import { createStore } from './my-redux';
 
 // reducer 函数
 // 用于初始化和更新store
