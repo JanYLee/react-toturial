@@ -1,5 +1,6 @@
-// import { createStore } from './offical-redux-src';
-import { createStore } from './my-redux';
+import { createStore, applyMiddleware } from './offical-redux-src';
+// import { createStore } from './my-redux';
+import thunk from 'redux-thunk';
 
 // reducer 函数
 // 用于初始化和更新store
@@ -16,7 +17,7 @@ function counter (state=10, action) {
 }
 
 // 新建store
-const store = createStore(counter);
+const store = createStore(counter, applyMiddleware(thunk));
 
 const init = store.getState();
 console.log('init :', init); // init : 10
@@ -31,6 +32,15 @@ function listener() {
 store.subscribe(listener);
 
 // 派发事件 传递action
-store.dispatch({type: 'add'}); // now store is 11
-store.dispatch({type: 'add'}); // now store is 12
-store.dispatch({type: 'delete'}); // now store is 11
+const addCounter = () => ({type: 'add'});
+const deleteCounter = () => ({type: 'delete'});
+const asyncAddCounter = () => dispatch => {
+  setTimeout(() => {
+    dispatch({type: 'delete'});
+  }, 1000);
+}
+
+store.dispatch(addCounter()); // now store is 11
+store.dispatch(addCounter()); // now store is 12
+store.dispatch(deleteCounter()); // now store is 11
+store.dispatch(asyncAddCounter()); // now store is 11
