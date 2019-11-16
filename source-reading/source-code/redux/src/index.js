@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware } from './offical-redux-src';
-// import { createStore } from './my-redux';
+// import { createStore, applyMiddleware } from './offical-redux-src';
+import { createStore, applyMiddleware } from './my-redux';
 import thunk from 'redux-thunk';
 
 // reducer 函数
