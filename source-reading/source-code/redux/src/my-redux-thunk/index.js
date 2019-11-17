@@ -1,3 +1,3 @@
-import thunk from './thunk';
+import arrThunk from './array-thunk';
 
-export default thunk;
+export default arrThunk;

@@ -1,4 +1,6 @@
-export default function applyMiddleware(middleware) {
+import compose from "./compose";
+
+export default function applyMiddleware(...middlewares) {
   return createStore => (...args) => {
     // ...args 即reducer
     const store = createStore(...args);
@@ -7,7 +9,8 @@ export default function applyMiddleware(middleware) {
       getState: store.getState,
       dispatch: (...args) => dispatch(...args)
     };
-    dispatch = middleware(midApi)(store.dispatch);
+    const middlewareChain = middlewares.map(m => m(midApi));
+    dispatch = compose(...middlewareChain)(store.dispatch);
     return {
       ...store,
       dispatch

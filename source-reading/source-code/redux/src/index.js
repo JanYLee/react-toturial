@@ -2,6 +2,7 @@
 // import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from './my-redux';
 import thunk from './my-redux-thunk';
+import arrThunk from './my-redux-array-thunk';
 
 // reducer 函数
 // 用于初始化和更新store
@@ -18,7 +19,7 @@ function counter (state=10, action) {
 }
 
 // 新建store
-const store = createStore(counter, applyMiddleware(thunk));
+const store = createStore(counter, applyMiddleware(thunk, arrThunk));
 
 const init = store.getState();
 console.log('init :', init); // init : 10
@@ -37,11 +38,14 @@ const addCounter = () => ({type: 'add'});
 const deleteCounter = () => ({type: 'delete'});
 const asyncAddCounter = () => dispatch => {
   setTimeout(() => {
-    dispatch({type: 'delete'});
+    dispatch({type: 'add'});
   }, 1000);
 }
+
+const addDoubleCounter = () => [{type: 'add'}, {type: 'add'}];
 
 store.dispatch(addCounter()); // now store is 11
 store.dispatch(addCounter()); // now store is 12
 store.dispatch(deleteCounter()); // now store is 11
-store.dispatch(asyncAddCounter()); // now store is 11
+store.dispatch(addDoubleCounter()); // now store is 12 now store is 13
+store.dispatch(asyncAddCounter()); // now store is 14
