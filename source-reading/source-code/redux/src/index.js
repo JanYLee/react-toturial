@@ -1,8 +1,8 @@
 // import { createStore, applyMiddleware } from './offical-redux-src';
 // import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from './my-redux';
-import thunk from './my-redux-thunk';
 import arrThunk from './my-redux-array-thunk';
+import thunk from './my-redux-thunk';
 
 // reducer 函数
 // 用于初始化和更新store
