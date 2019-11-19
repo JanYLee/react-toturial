@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class ShowCounter extends Component {
   render() {
-    const { store } = this.props;
-    const { counter } = store.getState();
+    const { counter } = this.props;
     return (
       <div>
         <h3>计数: {counter}</h3>
@@ -12,4 +12,4 @@ class ShowCounter extends Component {
   }
 }
 
-export default ShowCounter;
+export default connect(state => state, null)(ShowCounter);

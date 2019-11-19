@@ -5,11 +5,10 @@ import OperateCounter from './OperateCounter.jsx';
 
 class App extends Component {
   render() {
-    const { store } = this.props;
     return (
       <div>
-        <ShowCounter store={store} />
-        <OperateCounter store={store} />
+        <ShowCounter />
+        <OperateCounter />
       </div>
     );
   }
