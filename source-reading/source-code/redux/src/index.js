@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from './my-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { Provider } from './my-react-redux';
+import { createStore, applyMiddleware } from './my-redux';
 import thunk from './my-redux-thunk';
 import arrThunk from './my-redux-array-thunk';
 

@@ -12,7 +12,6 @@ export default function createStore(reducer, enhancer) {
 
   // 更新store数据, 执行订阅方法
   const dispatch = action => {
-    console.log("action :", action);
     currentState = reducer(currentState, action);
     currentListeners.forEach(v => v());
     return action;

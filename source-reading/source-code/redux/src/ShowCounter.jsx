@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from './my-react-redux';
 
 class ShowCounter extends Component {
   render() {
@@ -12,4 +12,4 @@ class ShowCounter extends Component {
   }
 }
 
-export default connect(state => state, null)(ShowCounter);
+export default connect(state => state, {})(ShowCounter);
